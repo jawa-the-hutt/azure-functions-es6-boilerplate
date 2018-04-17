@@ -1,0 +1,45 @@
+{
+  "name": "azure-functins-es6-boilerplate",
+  "version": "1.0.0",
+  "description": "A standard ES6 boilerplate project for Azure Functions",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf build",
+    "build:dev-old": "npm run clean && del proxies.json && copy proxy.local.json proxies.json && SET NODE_ENV=development&&webpack",
+    "build:dev": "npm run clean && SET NODE_ENV=development&&webpack",
+    "build:prod-old": "npm run clean && del proxies.json && copy proxy.azure.json proxies.json && SET NODE_ENV=production&&webpack",
+    "build:prod": "npm run clean && SET NODE_ENV=production&&webpack",
+    "delete_node_modules": "del-cli node_modules",
+    "deploy_to_azure": "func azure functionapp publish %npm_package_config_functionAppName% -i -y",
+    "start": "func host start --useHttps --debug VSCode",
+    "debug": "npm run build:dev && npm start",
+    "debug:prod": "npm run build:prod && npm start",
+    "deploy": "npm run build:prod && npm run delete_node_modules && npm run deploy_to_azure && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gary Gambill",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^1.7.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "compression-webpack-plugin": "^1.0.1",
+    "imports-loader": "^0.7.1",
+    "uglifyjs-webpack-plugin": "^1.0.0-rc.0",
+    "webpack": "^3.8.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jawa-the-hutt/azure-functions-es6-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jawa-the-hutt/azure-functions-es6-boilerplate/issues"
+  }
+}

@@ -1,0 +1,5 @@
+#.gitignore
+node_modules
+*.csproj
+local.settings.json
+

@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "api": {
+            "matchCondition": {
+                "route": "/api/{*url}"
+            },
+            "backendUri": "https://%WEBSITE_HOSTNAME%/{url}"
+        },
+        "app": {
+            "matchCondition": {
+                "route": "/",
+                "methods" : [
+                    "GET"
+                ]
+            },
+            "backendUri": "%SPA_HOST%/index.html%SPA_HOST_SAS_TOKEN%"
+        },
+        "appResources": {
+            "matchCondition": {
+                "route": "/files/{*url}",
+                "methods" : [
+                    "GET"
+                ]
+            },
+            "backendUri": "%SPA_HOST%/files/{url}"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "presets": [
+      ["env", {
+          "targets": {
+              "node": "6.5.0"
+          }
+      }]
+    ],
+    "plugins": [
+      ["transform-export-extensions", { "loose": true }],
+      ["add-module-exports", { "loose": true }]
+    ]
+  }

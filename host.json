@@ -1,0 +1,9 @@
+{
+    "swagger":{
+        "enabled":false
+    },
+    "http":{
+        "routePrefix":""
+    },
+    "functionTimeout": "00:10:00"
+}
